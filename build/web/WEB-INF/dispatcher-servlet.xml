@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <!-- CLIENTES -->
+                <prop key="clientes.html">ClienteController</prop>
+                <prop key="agregarCliente.html">ClienteController</prop>
+                <prop key="editarCliente.html">ClienteController</prop>
+                <prop key="borrarCliente.html">ClienteController</prop>
+                <!-- FIN CLIENTES -->
+                
+                <!-- PROVEEDORES -->
+                <prop key="proveedores.html">ProveedorController</prop>
+                <prop key="agregarProveedor.html">ProveedorController</prop>
+                <prop key="editarProveedor.html">ProveedorController</prop>
+                <prop key="borrarProveedor.html">ProveedorController</prop>
+                <!-- FIN PROVEEDORES -->
+                
+                <!-- FAMILIA DE PRODUCTOS -->
+                <prop key="familias.html">FamiliaProductoController</prop>
+                <prop key="agregarFamilia.html">FamiliaProductoController</prop>
+                <prop key="editarFamilia.html">FamiliaProductoController</prop>
+                <prop key="borrarFamilia.html">FamiliaProductoController</prop>
+                <!-- FIN FAMILIA DE PRODUCTOS -->
+                
+                <!-- SUB FAMILIA DE PRODUCTOS -->
+                <prop key="subfamilias.html">SubFamiliaProductoController</prop>
+                <prop key="agregarSubFamilia.html">SubFamiliaProductoController</prop>
+                <prop key="editarSubFamilia.html">SubFamiliaProductoController</prop>
+                <prop key="borrarSubFamilia.html">SubFamiliaProductoController</prop>
+                <!-- FIN TIPO DE PRODUCTOS -->
+                
+                <!-- PRODUCTOS -->
+                <prop key="productos.html">ProductoController</prop>
+                <prop key="agregarProducto.html">ProductoController</prop>
+                <prop key="editarProducto.html">ProductoController</prop>
+                <prop key="borrarProducto.html">ProductoController</prop>
+                <!-- FIN PRODUCTOS -->
+                
+                <!-- USUARIOS -->
+                <prop key="usuarios.html">UsuarioController</prop>
+                <prop key="agregarUsuario.html">UsuarioController</prop>
+                <prop key="editarUsuario.html">UsuarioController</prop>
+                <prop key="borrarUsuario.html">UsuarioController</prop>
+                <!-- FIN USUARIOS -->
+                
+                <!-- PEDIDOS -->
+                <prop key="pedidos.html">PedidoController</prop>
+                <prop key="agregarPedido.html">PedidoController</prop>
+                <prop key="editarPedido.html">PedidoController</prop>
+                <prop key="borrarPedido.html">PedidoController</prop>
+                <!-- FIN PEDIDOS -->
+                
+                <!-- ABONOS -->
+                <prop key="abonos.html">AbonoController</prop>
+                <prop key="agregarAbono.html">AbonoController</prop>
+                <prop key="editarAbono.html">AbonoController</prop>
+                <prop key="borrarAbono.html">AbonoController</prop>
+                <!-- FIN ABONOS -->
+                
+                <!-- VENTAS -->
+                <prop key="ventas.html">VentaController</prop>
+                <prop key="agregarVenta.html">VentaController</prop>
+                <prop key="editarVenta.html">VentaController</prop>
+                <prop key="borrarVenta.html">VentaController</prop>
+                <!-- FIN VENTAS -->
+                
+                <!-- LOGIN -->
+                <prop key="index.html">LoginController</prop>
+                <prop key="validarLogin.html">LoginController</prop>
+                <prop key="home.html">LoginController</prop>
+                <prop key="salir.html">LoginController</prop>
+                <!-- FIN LOGIN -->
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <bean name="ClienteController" class="controller.ClienteController" />
+    <bean name="ProveedorController" class="controller.ProveedorController" />
+    <bean name="FamiliaProductoController" class="controller.FamiliaProductoController" />
+    <bean name="SubFamiliaProductoController" class="controller.SubFamiliaProductoController" />
+    <bean name="ProductoController" class="controller.ProductoController" />
+    <bean name="UsuarioController" class="controller.UsuarioController" />
+    <bean name="PedidoController" class="controller.PedidoController" />
+    <bean name="AbonoController" class="controller.AbonoController" />
+    <bean name="VentaController" class="controller.VentaController" />
+    <bean name="LoginController" class="controller.LoginController" />
+</beans>
